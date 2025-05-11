@@ -61,7 +61,7 @@ class DBManager:
         в названии которых содержатся переданные в метод слова
         """
         self.cursor.execute("""
-            SELECT company_name, vacancy_name, salary_min, salary_max, vacancy_url FROM vacancies
+            SELECT company_name, vacancy_name, salary_min, salary_max, vacancy_url FROM vacancies 
             WHERE vacancy_name ILIKE '%%' || %s || '%%';
         """, (keyword, ))  # '%%' означает любую последовательность символов перед и после ключевого слова (%s)
         return self.cursor.fetchall()
